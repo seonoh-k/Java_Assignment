@@ -7,13 +7,13 @@ public class MemberAddService {
 
 	public boolean addMember(Member newMember) throws Exception {
 		
-		boolean isAddSuccess = false;
+		boolean isInsertSuccess = false;
 		
 		MemberDAO memberDAO = new MemberDAO();
 		
-		memberDAO.insertNewMember(newMember);
+		isInsertSuccess = memberDAO.insertNewMember(newMember);
 		
-		return isAddSuccess;
+		return isInsertSuccess;
 	}
 	
 }
