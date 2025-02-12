@@ -16,4 +16,33 @@ public class MemberDAO {
 		return isInsertSuccess;
 	}
 	
+	public void printMember() { // 리스트 출력
+		
+		memberList.forEach(System.out::println);
+		
+	}
+	
+	public boolean deleteMember(int memberId) { // 회원 정보 삭제
+		
+		boolean isDeleteSuccess = false;
+		
+		Member memberToDelete = null;
+		
+		for(Member member : memberList) {
+			if(member.getId() == memberId) {
+				memberToDelete = member;
+				break;
+			}
+		}
+		
+		if(memberToDelete != null) {
+			memberList.remove(memberToDelete);
+			isDeleteSuccess = true;
+		}else {
+			isDeleteSuccess = false;
+		}
+		
+		return isDeleteSuccess;
+	}
+		
 }

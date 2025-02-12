@@ -14,4 +14,11 @@ public class Member {
 	private String email;
 	private int age;
 	
+	public Member(int id, String addr, String nation, String email, int age) {
+		this.id = id;
+		this.addr = addr;
+		this.nation = nation;
+		this.email = email;
+		this.age = age;
+	}
 }

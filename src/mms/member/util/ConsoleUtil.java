@@ -32,11 +32,12 @@ public class ConsoleUtil {
 		return new Member(id++, name, addr, email, nation, age);
 	}
 	
-	public Member printMember(Scanner sc) {
+	public int deleteMember(Scanner sc) {
 		
-		System.out.println();
+		System.out.println("삭제할 회원의 아이디를 입력하세요");
+		int inputId = sc.nextInt();
 		
-		return null;
+		return inputId;
 	}
 	
 }
