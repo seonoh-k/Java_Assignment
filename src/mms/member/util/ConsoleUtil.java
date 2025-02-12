@@ -32,4 +32,11 @@ public class ConsoleUtil {
 		return new Member(id++, name, addr, email, nation, age);
 	}
 	
+	public Member printMember(Scanner sc) {
+		
+		System.out.println();
+		
+		return null;
+	}
+	
 }

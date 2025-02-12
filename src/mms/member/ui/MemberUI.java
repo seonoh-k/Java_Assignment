@@ -6,7 +6,7 @@ import mms.member.action.Action;
 import mms.member.action.MemberAddAction;
 import mms.member.action.MemberDeleteAction;
 import mms.member.action.MemberEditAction;
-import mms.member.action.MemberListAction;
+import mms.member.action.MemberPrintAction;
 
 public class MemberUI {
 
@@ -34,7 +34,7 @@ public class MemberUI {
 				action = new MemberAddAction();
 				break;
 			case 2:
-				action = new MemberListAction();
+				action = new MemberPrintAction();
 				break;
 			case 3:
 				action = new MemberEditAction();
