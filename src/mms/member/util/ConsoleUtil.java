@@ -32,11 +32,11 @@ public class ConsoleUtil {
 		return new Member(id++, name, addr, email, nation, age);
 	}
 	
-	public int deleteMember(Scanner sc) {
+	public int inputMemberId(Scanner sc) {
+		// 조회, 수정, 삭제 기능에서 필요한 ID 값을 입력
 		
-		System.out.println("삭제할 회원의 아이디를 입력하세요");
+		System.out.println("회원의 아이디를 입력하세요");
 		int inputId = sc.nextInt();
-		
 		return inputId;
 	}
 	

@@ -11,7 +11,8 @@ public class MemberDeleteAction implements Action {
 	public void execute(Scanner sc) throws Exception {
 		
 		ConsoleUtil cu = new ConsoleUtil();
-		int memberId = cu.deleteMember(sc);
+		System.out.print("ªË¡¶«“ ");
+		int memberId = cu.inputMemberId(sc);
 		
 		MemberDeleteService memberService = new MemberDeleteService();
 		

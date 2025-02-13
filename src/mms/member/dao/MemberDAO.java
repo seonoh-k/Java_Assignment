@@ -16,10 +16,24 @@ public class MemberDAO {
 		return isInsertSuccess;
 	}
 	
-	public void printMember() { // 리스트 출력
+	public void printMember(int memberId) { // 리스트 출력
 		
-		memberList.forEach(System.out::println);
-		
+		if(memberId == 0) { // 0을 입력하면 회원 전체 출력
+			memberList.forEach(System.out::println);
+		}else {
+			boolean found = false;
+			for(Member member : memberList) {
+				if(member.getId() == memberId) { // 입력한 아이디와 같은 아이디를 가지는 회원 정보 출력
+					System.out.println(member);
+					found = true; // 입력한 아이디와 일치하는 회원이 존재할 경우 true로 변경하고 반복문 종료.
+					break;
+				}
+			}
+			
+			if(!found) { // 입력한 아이디와 일치하는 회원 정보가 없으면
+				System.out.println("입력하신 아이디와 일치하는 회원 정보가 없습니다");
+			}
+		}		
 	}
 	
 	public boolean deleteMember(int memberId) { // 회원 정보 삭제
