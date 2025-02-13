@@ -13,14 +13,14 @@ public class MemberAddAction implements Action {
 		// sc = MemberUI에서 받아온 입력값
 		
 		ConsoleUtil cu = new ConsoleUtil();
-		Member newMemeber = cu.getNewMember(sc);
+		Member newMember = cu.getNewMember(sc);
 		
 		MemberAddService memberService = new MemberAddService();
 		
-		boolean isAddSuccess = memberService.addMember(newMemeber);
+		boolean isAddSuccess = memberService.addMember(newMember);
 		
 		if(isAddSuccess) {
-			System.out.println("데이터 추가 성공");
+			System.out.printf("%s 회원정보 추가성공\n", newMember.getName());
 		}else {
 			System.out.println("데이터 추가 실패");
 		}

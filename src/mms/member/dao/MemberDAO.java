@@ -40,23 +40,46 @@ public class MemberDAO {
 		
 		boolean isDeleteSuccess = false;
 		
-		Member memberToDelete = null;
+		Member memberToDelete = null; // 삭제할 회원 정보를 담을 빈 객체 생성
 		
 		for(Member member : memberList) {
-			if(member.getId() == memberId) {
+			if(member.getId() == memberId) { // 입력한 아이디와 일치하는 회원 정보를 빈 객체에 저장
 				memberToDelete = member;
 				break;
 			}
 		}
 		
-		if(memberToDelete != null) {
-			memberList.remove(memberToDelete);
+		if(memberToDelete != null) { // 삭제할 회원 정보가 있다면
+			memberList.remove(memberToDelete); // 회원 정보 삭제
 			isDeleteSuccess = true;
 		}else {
 			isDeleteSuccess = false;
 		}
 		
 		return isDeleteSuccess;
+	}
+	
+	public boolean updateMember(Member updatedMember) { 
+	    boolean isUpdateSuccess = false;
+
+	    for (Member member : memberList) {
+	        if (member.getId() == updatedMember.getId()) { 
+	            memberList.set(memberList.indexOf(member), updatedMember);
+	            isUpdateSuccess = true;
+	            break;
+	        }
+	    }
+
+	    return isUpdateSuccess; 
+	}
+	
+	public Member getMemberById(int memberId) {
+	    for (Member member : memberList) {
+	        if (member.getId() == memberId) {
+	            return member; 
+	        }
+	    }
+	    return null; 
 	}
 		
 }
