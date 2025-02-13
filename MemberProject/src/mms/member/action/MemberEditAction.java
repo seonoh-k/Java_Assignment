@@ -1,7 +1,6 @@
 package mms.member.action;
 
 import java.util.Scanner;
-
 import mms.member.svc.MemberEditService;
 import mms.member.util.ConsoleUtil;
 import mms.member.vo.Member;
@@ -20,9 +19,9 @@ public class MemberEditAction implements Action {
         boolean isEditSuccess = memberService.editMember(updatedMember);
         
         if (isEditSuccess) {
-            System.out.println("íšŒì›ì •ë³´ ìˆ˜ì •ì™„ë£Œ");
+            System.out.println("È¸¿øÁ¤º¸ ¼öÁ¤¿Ï·á");
         } else {
-            System.out.println("í•´ë‹¹ íšŒì›ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+            System.out.println("ÇØ´ç È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
         }
     }
 }

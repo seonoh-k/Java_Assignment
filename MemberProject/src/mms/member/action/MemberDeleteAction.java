@@ -11,7 +11,7 @@ public class MemberDeleteAction implements Action {
 	public void execute(Scanner sc) throws Exception {
 		
 		ConsoleUtil cu = new ConsoleUtil();
-		System.out.print("ì‚­ì œí•  ");
+		System.out.print("»èÁ¦ÇÒ ");
 		int memberId = cu.inputMemberId(sc);
 		
 		MemberDeleteService memberService = new MemberDeleteService();
@@ -19,9 +19,9 @@ public class MemberDeleteAction implements Action {
 		boolean isDeleteSuccess = memberService.deleteMember(memberId);
 		
 		if(isDeleteSuccess) {
-			System.out.printf("%dë²ˆ íšŒì› ì •ë³´ ì‚­ì œ ì„±ê³µ\n", memberId);
+			System.out.printf("%d¹ø È¸¿ø Á¤º¸ »èÁ¦ ¼º°ø\n", memberId);
 		}else {
-			System.out.println("íšŒì› ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
+			System.out.println("È¸¿ø Á¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
 		}
 		
 		

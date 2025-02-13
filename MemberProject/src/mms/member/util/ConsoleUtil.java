@@ -2,63 +2,67 @@ package mms.member.util;
 
 import java.util.Scanner;
 
+import mms.member.dao.MemberDAO;
 import mms.member.vo.Member;
 
 public class ConsoleUtil {
 
-	static int id = 1;
-	
-	public Member getNewMember(Scanner sc) {
-		// sc = MemberAddActionì—ì„œ ë°›ì•„ì˜¨ ì…ë ¥ê°’
-		
-		// ì…ë ¥ ê¸°ëŠ¥ ì‘ì„±
-		System.out.println("ë“±ë¡í•  íšŒì› ì •ë³´ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
-		
-		System.out.println("ì´ë¦„ : ");
-		String name = sc.next();
-		
-		System.out.println("ì£¼ì†Œ : ");
-		String addr = sc.next();
-		
-		System.out.println("ì´ë©”ì¼ : ");
-		String email = sc.next();
-		
-		System.out.println("êµ­ê°€ : ");
-		String nation = sc.next();
-		
-		System.out.println("ë‚˜ì´ : ");
-		int age = sc.nextInt();
-		
-		return new Member(id++, name, addr, email, nation, age);
-	}
-	
-	public int inputMemberId(Scanner sc) {
-		// ì¡°íšŒ, ìˆ˜ì •, ì‚­ì œ ê¸°ëŠ¥ì—ì„œ í•„ìš”í•œ ID ê°’ì„ ì…ë ¥
-		
-		System.out.println("íšŒì›ì˜ ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
-		int inputId = sc.nextInt();
-		return inputId;
-	}
-	
+    static int id = 1;
 
+    public Member getNewMember(Scanner sc) {
+        // ±âÁ¸ ÄÚµå À¯Áö
+        System.out.println("µî·ÏÇÒ È¸¿ø Á¤º¸¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+        
+        System.out.println("ÀÌ¸§ : ");
+        String name = sc.next();
+        
+        System.out.println("ÁÖ¼Ò : ");
+        String addr = sc.next();
+        
+        System.out.println("ÀÌ¸ŞÀÏ : ");
+        String email = sc.next();
+        
+        System.out.println("±¹°¡ : ");
+        String nation = sc.next();
+        
+        System.out.println("³ªÀÌ : ");
+        int age = sc.nextInt();
+        
+        return new Member(id++, name, addr, email, nation, age);
+    }
+
+    public int inputMemberId(Scanner sc) {
+        // Á¶È¸, ¼öÁ¤, »èÁ¦ ±â´É¿¡¼­ ÇÊ¿äÇÑ ID °ªÀ» ÀÔ·Â
+        System.out.println("È¸¿øÀÇ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+        int inputId = sc.nextInt();
+        return inputId;
+    }
 
     public Member EditMember(Scanner sc, int memberId) {
         
-        System.out.println("ìˆ˜ì •í•  íšŒì› ì •ë³´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+        Member currentMember = new MemberDAO().getMemberById(memberId); // ÇØ´ç È¸¿ø Á¤º¸¸¦ °¡Á®¿È
         
-        System.out.print("ìƒˆë¡œìš´ ì£¼ì†Œ : ");
-        String addr = sc.next();
+        if (currentMember == null) {
+            System.out.println("ÇØ´ç È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+            return null; 
+        }
         
-        System.out.print("ìƒˆë¡œìš´ ì´ë©”ì¼ : ");
-        String email = sc.next();
+        System.out.println("¼öÁ¤ÇÒ È¸¿ø Á¤º¸¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
         
-        System.out.print("ìƒˆë¡œìš´ êµ­ê°€ : ");
-        String nation = sc.next();
-        
-        System.out.print("ìƒˆë¡œìš´ ë‚˜ì´ : ");
-        int age = sc.nextInt();
-        
-        return new Member(memberId, addr, nation, email, age); // ìˆ˜ì •í•  íšŒì› ì •ë³´ ë°˜í™˜
-    }
+        String name = currentMember.getName();
 
+        System.out.println("ÀÌÀü ÁÖ¼Ò: " + currentMember.getAddr() + " ¼öÁ¤ÇÒ ÁÖ¼Ò: ");
+        String addr = sc.next();
+
+        System.out.println("ÀÌÀü ÀÌ¸ŞÀÏ: " + currentMember.getEmail() + " ¼öÁ¤ÇÒ ÀÌ¸ŞÀÏ: ");
+        String email = sc.next();
+
+        System.out.println("ÀÌÀü ±¹°¡: " + currentMember.getNation() + " ¼öÁ¤ÇÒ ±¹°¡: ");
+        String nation = sc.next();
+
+        System.out.println("ÀÌÀü ³ªÀÌ: " + currentMember.getAge() + " ¼öÁ¤ÇÒ ³ªÀÌ: ");
+        int age = sc.nextInt();
+
+        return new Member(memberId, name, addr, nation, email, age);
+    }
 }

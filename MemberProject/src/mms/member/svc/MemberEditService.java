@@ -12,7 +12,6 @@ public class MemberEditService {
     }
 
     public boolean editMember(Member updatedMember) {
-
         return memberDAO.updateMember(updatedMember); 
     }
 }

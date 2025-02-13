@@ -10,7 +10,7 @@ public class MemberAddAction implements Action {
 
 	@Override
 	public void execute(Scanner sc) throws Exception {
-		// sc = MemberUIì—ì„œ ë°›ì•„ì˜¨ ì…ë ¥ê°’
+		// sc = MemberUI¿¡¼­ ¹Ş¾Æ¿Â ÀÔ·Â°ª
 		
 		ConsoleUtil cu = new ConsoleUtil();
 		Member newMemeber = cu.getNewMember(sc);
@@ -20,9 +20,9 @@ public class MemberAddAction implements Action {
 		boolean isAddSuccess = memberService.addMember(newMemeber);
 		
 		if(isAddSuccess) {
-			System.out.println("ë°ì´í„° ì¶”ê°€ ì„±ê³µ");
+			System.out.println("µ¥ÀÌÅÍ Ãß°¡ ¼º°ø");
 		}else {
-			System.out.println("ë°ì´í„° ì¶”ê°€ ì‹¤íŒ¨");
+			System.out.println("µ¥ÀÌÅÍ Ãß°¡ ½ÇÆĞ");
 		}
 	}
 
