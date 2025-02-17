@@ -13,6 +13,7 @@ public class MemberEditAction implements Action {
         
         int memberId = cu.inputMemberId(sc); 
         Member updatedMember = cu.EditMember(sc, memberId); 
+//        String date = cu.getDate();
         
         MemberEditService memberService = new MemberEditService();
         
@@ -23,5 +24,8 @@ public class MemberEditAction implements Action {
         } else {
             System.out.println("해당 회원이 존재하지 않습니다.");
         }
+        
     }
 }
+//        String log = "아이디 " + memberId + "번 회원정보 수정완료 " + date; 
+//        memberService.saveLog(log);

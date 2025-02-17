@@ -14,10 +14,11 @@ public class MemberPrintAction implements Action {
 		System.out.println("전체 조회는 0을 입력하세요");
 		System.out.print("조회할 ");
 		int memberId = cu.inputMemberId(sc);
-		
+//		String date = cu.getDate();		
 		
 		MemberPrintService memberService = new MemberPrintService();
 		
+//		System.out.println(date);
 		memberService.printMember(memberId);
 		
 		

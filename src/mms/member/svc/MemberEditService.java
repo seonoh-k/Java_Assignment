@@ -5,13 +5,16 @@ import mms.member.vo.Member;
 
 public class MemberEditService {
 
-    private MemberDAO memberDAO;
-
-    public MemberEditService() {
-        this.memberDAO = new MemberDAO();
-    }
+    private MemberDAO memberDAO = new MemberDAO();
 
     public boolean editMember(Member updatedMember) {
         return memberDAO.updateMember(updatedMember); 
     }
+    
 }
+
+//    public void saveLog(String log) {
+//		
+//		memberDAO.saveLog(log);
+//		
+//	}

@@ -14,6 +14,7 @@ public class MemberAddAction implements Action {
 		
 		ConsoleUtil cu = new ConsoleUtil();
 		Member newMember = cu.getNewMember(sc);
+//		String date = cu.getDate();
 		
 		MemberAddService memberService = new MemberAddService();
 		
@@ -24,6 +25,10 @@ public class MemberAddAction implements Action {
 		}else {
 			System.out.println("데이터 추가 실패");
 		}
+		
 	}
 
 }
+//		String log = newMember.getName() + " 회원정보 추가성공 - "+ date;
+//		
+//		memberService.saveLog(log);

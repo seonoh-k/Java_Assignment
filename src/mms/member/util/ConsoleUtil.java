@@ -1,5 +1,6 @@
 package mms.member.util;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 import mms.member.dao.MemberDAO;
@@ -8,13 +9,13 @@ import mms.member.vo.Member;
 public class ConsoleUtil {
 
 	static int id = 1;
-	
+		
 	public Member getNewMember(Scanner sc) {
 		// sc = MemberAddAction에서 받아온 입력값
 		
 		// 입력 기능 작성
 		System.out.println("등록할 회원 정보를 입력하세요");
-		
+
 		System.out.println("이름 : ");
 		String name = sc.next();
 		
@@ -28,7 +29,7 @@ public class ConsoleUtil {
 		String nation = sc.next();
 		
 		System.out.println("나이 : ");
-		int age = sc.nextInt();
+		int age = sc.nextInt();						
 		
 		return new Member(id++, name, addr, nation, email, age);
 	}
@@ -70,3 +71,11 @@ public class ConsoleUtil {
     }
 	
 }
+
+//	Calendar date = Calendar.getInstance();
+//	
+//	public String getDate() {
+//		
+//		return date.get(Calendar.YEAR) + "년" + (date.get(Calendar.MONTH)+1) + "월" + date.get(Calendar.DATE) + "일 "
+//				+ date.get(Calendar.HOUR) + ":" + date.get(Calendar.MINUTE) + ":" + date.get(Calendar.SECOND);
+//	}
